@@ -136,6 +136,10 @@ python tests/e2e/e2e_playwright.py . docs/evidencias   # fluxos completos + prin
 - **Regras separadas da interface** (`core.js`): testáveis no Node e prontas para virar chamadas de API.
 - **Pagamento como contrato isolado** (`payment.js`): trocar o simulador por um gateway real não muda as telas.
 
+## 👩‍💻 Autoria
+
+Desenvolvido por **Aliny Reis Ramos** — RU 5071671 — estudante de CST em Análise e Desenvolvimento de Sistemas (UNINTER).
+
 ## ⚠️ Aviso
 
 Projeto acadêmico. Empresa, unidades, preços e pagamentos são **fictícios**: nenhuma cobrança real é feita e nenhum dado sai do seu navegador.

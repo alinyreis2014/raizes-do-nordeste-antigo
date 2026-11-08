@@ -345,6 +345,8 @@ legend { font-weight: 700; margin-bottom: .5rem; padding: 0; }
 .footer { border-top: 1px solid var(--linha); background: var(--branco); font-size: .8rem; color: var(--cinza); }
 .footer__inner { padding: 1rem; display: grid; gap: .5rem; }
 .footer nav { display: flex; flex-wrap: wrap; gap: .5rem 1rem; }
+.footer__credit p { margin: 0 0 .25rem; }
+.footer__credit strong { color: var(--barro); }
 .footer a, .footer .linklike { color: var(--cinza); font-size: .8rem; }
 
 /* =========================================================
