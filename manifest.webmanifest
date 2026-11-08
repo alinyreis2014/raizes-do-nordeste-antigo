@@ -1,0 +1,10 @@
+{
+  "name": "Raízes do Nordeste",
+  "short_name": "Raízes",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#FBF3E8",
+  "theme_color": "#B5482A",
+  "lang": "pt-BR",
+  "icons": [{ "src": "assets/favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}

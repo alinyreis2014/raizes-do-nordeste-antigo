@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Wireframes de baixa fidelidade — Raízes do Nordeste</title>
+<style>
+  :root { --ink:#333; --line:#9a9a9a; --fill:#e6e6e6; --fill2:#d2d2d2; }
+  * { box-sizing: border-box; }
+  body { font-family: "Comic Sans MS", "Segoe Print", "Chalkboard SE", system-ui, sans-serif; color: var(--ink); background: #fafafa; margin: 0; padding: 24px; }
+  h1 { font-size: 22px; margin: 0 0 4px; }
+  .lead { margin: 0 0 24px; font-size: 14px; color: #666; }
+  h2 { font-size: 16px; margin: 32px 0 12px; border-bottom: 2px dashed var(--line); padding-bottom: 4px; }
+  .row { display: flex; flex-wrap: wrap; gap: 28px; align-items: flex-start; }
+  .screen { display: flex; flex-direction: column; gap: 6px; }
+  .cap { font-size: 13px; font-weight: bold; }
+  .note { font-size: 11px; color: #666; max-width: 240px; }
+  .phone { width: 240px; height: 480px; border: 3px solid var(--ink); border-radius: 26px; padding: 10px 8px; display: flex; flex-direction: column; gap: 6px; background: #fff; position: relative; overflow: hidden; }
+  .desk { width: 760px; border: 3px solid var(--ink); border-radius: 8px; padding: 8px; display: flex; flex-direction: column; gap: 8px; background: #fff; }
+  .bar { height: 22px; border: 1.5px solid var(--line); border-radius: 4px; display: flex; align-items: center; justify-content: space-between; padding: 0 6px; font-size: 10px; }
+  .box { border: 1.5px solid var(--line); border-radius: 6px; background: var(--fill); font-size: 10px; padding: 5px; }
+  .x { position: relative; background: #fff; }
+  .x::before, .x::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top right, transparent calc(50% - 1px), var(--line) 50%, transparent calc(50% + 1px)); }
+  .x::after { background: linear-gradient(to top left, transparent calc(50% - 1px), var(--line) 50%, transparent calc(50% + 1px)); }
+  .t { height: 7px; background: var(--fill2); border-radius: 3px; margin: 3px 0; }
+  .t.s { width: 45%; } .t.m { width: 70%; } .t.l { width: 92%; }
+  .btn { border: 1.5px solid var(--ink); border-radius: 5px; font-size: 10px; text-align: center; padding: 5px; font-weight: bold; background: var(--fill2); }
+  .btn.o { background: #fff; }
+  .in { border: 1.5px solid var(--line); border-radius: 4px; height: 22px; font-size: 9px; padding: 4px; color: #888; background: #fff; }
+  .lbl { font-size: 9px; margin-top: 2px; }
+  .err { font-size: 9px; color: #b00; }
+  .tabs { position: absolute; left: 0; right: 0; bottom: 0; height: 34px; border-top: 1.5px solid var(--line); display: flex; justify-content: space-around; align-items: center; font-size: 8px; background: #fff; }
+  .tabs span { display: flex; flex-direction: column; align-items: center; }
+  .tabs i { width: 12px; height: 12px; border: 1.5px solid var(--line); border-radius: 3px; display: block; }
+  .chips { display: flex; gap: 4px; } .chips div { border: 1.5px solid var(--line); border-radius: 10px; font-size: 8px; padding: 2px 6px; }
+  .card { display: flex; gap: 6px; border: 1.5px solid var(--line); border-radius: 6px; padding: 5px; }
+  .card .x { width: 38px; height: 38px; flex: none; border: 1.5px solid var(--line); border-radius: 4px; }
+  .grow { flex: 1; }
+  .flex { display: flex; gap: 6px; align-items: center; }
+  .between { justify-content: space-between; }
+  .center { text-align: center; }
+  .circle { width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--ink); flex: none; }
+  .circle.f { background: var(--ink); }
+  .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .pc { border: 1.5px solid var(--line); border-radius: 6px; padding: 4px; }
+  .pc .x { height: 48px; border: 1.5px solid var(--line); border-radius: 4px; margin-bottom: 3px; }
+  .callout { font-size: 9px; background: #fff7c2; border: 1px dashed #c9a400; padding: 3px 5px; border-radius: 4px; }
+  .big { font-size: 22px; font-weight: bold; letter-spacing: 3px; }
+  .switch { width: 22px; height: 12px; border-radius: 6px; border: 1.5px solid var(--ink); flex: none; position: relative; }
+  .switch::after { content: ""; position: absolute; width: 8px; height: 8px; border-radius: 50%; background: var(--ink); top: 0.5px; left: 1px; }
+  .switch.on::after { left: 10px; }
+  .chk { width: 10px; height: 10px; border: 1.5px solid var(--ink); flex: none; }
+</style>
+</head>
+<body>
+<h1>Wireframes de baixa fidelidade — Raízes do Nordeste</h1>
+<p class="lead">Validam a arquitetura de informação e a posição dos elementos. Sem cores nem imagens finais: caixas com "X" = imagem; barras cinza = texto. Abordagem mobile-first: o celular foi desenhado primeiro.</p>
+
+<h2>Fluxo 1 — Mobile: do cardápio ao carrinho</h2>
+<div class="row">
+  <div class="screen"><span class="cap">M1 · Escolha da unidade + aviso LGPD</span>
+    <div class="phone">
+      <div class="bar"><span>◉ LOGO</span><span>[📍 Escolha a unidade]</span></div>
+      <div class="t m"></div><div class="t l"></div>
+      <div class="box"><b>Recife — Boa Viagem</b><div class="t l"></div><div class="t s"></div><div class="btn">Pedir nesta unidade</div></div>
+      <div class="box"><b>Salvador — Pelourinho</b><div class="t l"></div><div class="btn">Pedir nesta unidade</div></div>
+      <div class="box" style="background:#cfcfcf;margin-top:auto;margin-bottom:38px"><b>Sua privacidade importa</b><div class="t l"></div><div class="t l"></div>
+        <div class="flex"><div class="btn o grow">Só essenciais</div><div class="btn o grow">Personalizar</div></div><div class="btn" style="margin-top:4px">Aceitar todos</div></div>
+      <div class="tabs"><span><i></i>Cardápio</span><span><i></i>Promo</span><span><i></i>Pontos</span><span><i></i>Pedidos</span><span><i></i>Conta</span><span><i></i>Carrinho</span></div>
+    </div>
+    <span class="note">Aceitar e recusar têm o mesmo peso visual. A navegação fica no rodapé (alcance do polegar).</span></div>
+
+  <div class="screen"><span class="cap">M2 · Cardápio da unidade</span>
+    <div class="phone">
+      <div class="bar"><span>◉ LOGO</span><span>[📍 Recife ▾]</span></div>
+      <div class="box"><div class="t s"></div><b>Recife — Boa Viagem</b><div class="flex between"><span style="font-size:8px">7h–22h · ABERTO</span><div class="btn o">Trocar</div></div></div>
+      <div class="flex"><div class="box grow" style="background:#c8c8c8">PROMO 1<br><b>[CUPOM]</b></div><div class="box grow" style="background:#c8c8c8">PROMO 2</div></div>
+      <div class="in">🔍 Buscar prato ou bebida</div>
+      <div class="chips"><div style="background:#333;color:#fff">Tudo</div><div>Café</div><div>Pratos</div><div>Bebidas</div></div>
+      <div class="card"><div class="x"></div><div class="grow"><b style="font-size:10px">Tapioca</b><div class="t l"></div><div class="flex between"><b style="font-size:10px">R$ 14,90</b><div class="btn">Adicionar</div></div></div></div>
+      <div class="card"><div class="x"></div><div class="grow"><b style="font-size:10px">Cuscuz</b><div class="t l"></div><div class="flex between"><b style="font-size:10px">R$ 12,50</b><div class="btn">Adicionar</div></div></div></div>
+      <div class="card" style="opacity:.5"><div class="x"></div><div class="grow"><b style="font-size:10px">Caldo de cana</b><div class="t m"></div><div class="flex between"><b style="font-size:10px">R$ 7,50</b><span style="font-size:8px">INDISPONÍVEL</span></div></div></div>
+      <div class="tabs"><span><i></i><b>Cardápio</b></span><span><i></i>Promo</span><span><i></i>Pontos</span><span><i></i>Pedidos</span><span><i></i>Conta</span><span><i></i>Carrinho ③</span></div>
+    </div>
+    <span class="note">Preço e botão sempre visíveis. Item esgotado aparece desativado, no fim da lista.</span></div>
+
+  <div class="screen"><span class="cap">M3 · Carrinho com cupom</span>
+    <div class="phone">
+      <div class="bar"><span>◉ LOGO</span><span>[📍 Recife ▾]</span></div>
+      <b style="font-size:13px">Carrinho</b>
+      <div class="card"><div class="x" style="width:24px;height:24px"></div><div class="grow"><b style="font-size:10px">Tapioca</b><div class="flex between"><span style="font-size:9px">[ − 1 + ]</span><b style="font-size:10px">R$ 14,90</b></div></div><span>✕</span></div>
+      <div class="card"><div class="x" style="width:24px;height:24px"></div><div class="grow"><b style="font-size:10px">Baião de dois</b><div class="flex between"><span style="font-size:9px">[ − 1 + ]</span><b style="font-size:10px">R$ 32,00</b></div></div><span>✕</span></div>
+      <div class="lbl">Cupom de desconto</div>
+      <div class="flex"><div class="in grow">ARRETADO</div><div class="btn o">Aplicar</div></div>
+      <div class="err">⚠ Pedido mínimo de R$ 40 para este cupom.</div>
+      <div class="box" style="background:#fff"><div class="flex between"><span>Subtotal</span><span>R$ 46,90</span></div><div class="flex between"><span>Desconto</span><span>− R$ 5,00</span></div><div class="flex between"><b>Total</b><b>R$ 41,90</b></div><span style="font-size:8px">+41 pontos</span></div>
+      <div class="btn" style="padding:9px">Ir para pagamento</div>
+      <div class="tabs"><span><i></i>Cardápio</span><span><i></i>Promo</span><span><i></i>Pontos</span><span><i></i>Pedidos</span><span><i></i>Conta</span><span><i></i><b>Carrinho</b></span></div>
+    </div>
+    <span class="note">O motivo do cupom inválido aparece embaixo do campo, sem bloquear o resto.</span></div>
+
+  <div class="screen"><span class="cap">M4 · Cadastro com consentimento</span>
+    <div class="phone">
+      <div class="bar"><span>◉ LOGO</span><span></span></div>
+      <b style="font-size:13px">Criar conta</b>
+      <div class="lbl">Nome completo *</div><div class="in"></div>
+      <div class="lbl">E-mail *</div><div class="in"></div>
+      <div class="lbl">Celular (opcional)</div><div class="in"></div><span style="font-size:8px;color:#666">Para avisar que o pedido ficou pronto</span>
+      <div class="lbl">CPF (opcional)</div><div class="in"></div><span style="font-size:8px;color:#666">Só para nota fiscal com CPF</span>
+      <div class="lbl">Senha *</div><div class="in"></div>
+      <div class="box" style="background:#f2f2f2"><b style="font-size:9px">Privacidade (LGPD)</b>
+        <div class="flex"><div class="chk"></div><span style="font-size:8px">Aceito os Termos e a Política *</span></div>
+        <div class="flex"><div class="chk"></div><span style="font-size:8px">Quero receber ofertas (opcional)</span></div></div>
+      <div class="btn">Criar conta</div>
+    </div>
+    <span class="note">Campos opcionais explicam para que servem. As caixas de consentimento vêm desmarcadas e separadas.</span></div>
+</div>
+
+<h2>Fluxo 2 — Mobile: pagamento e acompanhamento</h2>
+<div class="row">
+  <div class="screen"><span class="cap">M5 · Checkout</span>
+    <div class="phone">
+      <div class="bar"><span>◉ LOGO</span><span></span></div>
+      <b style="font-size:13px">Pagamento</b>
+      <div class="lbl"><b>Como quer receber?</b></div>
+      <div class="flex"><div class="box grow flex" style="background:#fff"><div class="circle f"></div>Balcão</div><div class="box grow flex" style="background:#fff"><div class="circle"></div>No local</div></div>
+      <div class="lbl"><b>Forma de pagamento</b></div>
+      <div class="box flex" style="background:#fff"><div class="circle"></div>Pix</div>
+      <div class="box flex" style="background:#fff"><div class="circle f"></div>Cartão de crédito</div>
+      <div class="lbl">Número do cartão *</div><div class="in">0000 0000 0000 0000</div>
+      <div class="flex"><div class="grow"><div class="lbl">Validade *</div><div class="in">MM/AA</div></div><div class="grow"><div class="lbl">CVV *</div><div class="in">•••</div></div></div>
+      <div class="callout">🔒 Cartão vai direto ao provedor de pagamento. Não armazenamos.</div>
+      <div class="btn" style="padding:9px">Pagar R$ 41,90</div>
+    </div>
+    <span class="note">Os campos do cartão só aparecem quando cartão é escolhido. Aviso de privacidade junto ao botão de pagar.</span></div>
+
+  <div class="screen"><span class="cap">M6 · Processando / retorno do gateway</span>
+    <div class="phone">
+      <div class="bar"><span>◉ LOGO</span><span></span></div>
+      <div class="box center" style="background:#fff;padding:10px"><div style="width:34px;height:34px;border-radius:50%;border:4px dashed #999;margin:0 auto 6px"></div><b>Processando pagamento…</b>
+        <div style="text-align:left;font-size:9px;margin-top:6px">✓ Pedido validado<br>● Enviando ao provedor<br>○ Aguardando banco</div></div>
+      <div style="text-align:center;font-size:10px">↓ aprovado &nbsp; | &nbsp; ↓ recusado</div>
+      <div class="flex" style="align-items:stretch">
+        <div class="box grow center" style="background:#fff">✔<br><b>Aprovado</b><div class="t l"></div><span style="font-size:8px">vai para M8</span></div>
+        <div class="box grow center" style="background:#fff">✖<br><b>Não aprovado</b><div class="t l"></div><span style="font-size:8px">Nada cobrado</span><div class="btn" style="margin-top:3px">Tentar de novo</div><div class="btn o" style="margin-top:3px">Pagar c/ Pix</div></div>
+      </div>
+      <div class="box center" style="background:#fff">⚠ <b>Serviço indisponível</b><div class="t l"></div><div class="btn o">Tentar novamente</div></div>
+    </div>
+    <span class="note">Cada resposta do serviço externo tem uma tela própria. O carrinho nunca é perdido.</span></div>
+
+  <div class="screen"><span class="cap">M7 · Pix</span>
+    <div class="phone">
+      <div class="bar"><span>◉ LOGO</span><span></span></div>
+      <b class="center" style="font-size:13px">Pague com Pix</b>
+      <div class="t l"></div>
+      <div class="x" style="width:130px;height:130px;margin:6px auto;border:1.5px solid var(--line)"></div>
+      <span class="center" style="font-size:8px">QR CODE</span>
+      <div class="flex"><div class="in grow">00020126580014BR.GOV…</div><div class="btn o">Copiar</div></div>
+      <div class="center" style="font-size:10px">● Aguardando banco… <b>4:52</b></div>
+      <div class="btn o" style="margin-top:auto">Cancelar e trocar forma</div>
+    </div>
+    <span class="note">Contagem regressiva e consulta automática do status; nenhuma ação extra do cliente.</span></div>
+
+  <div class="screen"><span class="cap">M8 · Acompanhar pedido</span>
+    <div class="phone">
+      <div class="bar"><span>◉ LOGO</span><span></span></div>
+      <div class="box" style="background:#bdbdbd"><span style="font-size:8px">PEDIDO #101 · RECIFE</span><br><b style="font-size:13px">Em preparo</b><div class="t m" style="background:#999"></div>
+        <div class="box" style="background:#d5d5d5;display:inline-block"><span style="font-size:8px">CÓDIGO DE RETIRADA</span><div class="big">K482</div></div></div>
+      <div class="flex"><div class="circle f"></div><span style="font-size:10px" class="grow">Pagamento confirmado</span><span style="font-size:8px">12:01</span></div>
+      <div class="flex"><div class="circle f"></div><b style="font-size:10px" class="grow">Em preparo</b><span style="font-size:8px">12:02</span></div>
+      <div class="flex"><div class="circle"></div><span style="font-size:10px" class="grow">Pronto para retirada</span></div>
+      <div class="flex"><div class="circle"></div><span style="font-size:10px" class="grow">Retirado</span></div>
+      <div class="box" style="background:#fff"><b>Itens</b><div class="t l"></div><div class="t m"></div><div class="flex between"><b>Total pago</b><b>R$ 41,90</b></div></div>
+      <div class="box" style="background:#fff"><b>Pagamento</b> Visa final 1111<div class="t s"></div><span style="font-size:8px">+41 pontos</span></div>
+    </div>
+    <span class="note">O código é o maior elemento da tela, para mostrar no balcão. Linha do tempo com horários.</span></div>
+</div>
+
+<h2>Fluxo 3 — Mobile: fidelidade e privacidade</h2>
+<div class="row">
+  <div class="screen"><span class="cap">M9 · Fidelidade</span>
+    <div class="phone">
+      <div class="bar"><span>◉ LOGO</span><span></span></div>
+      <div class="box" style="background:#bdbdbd"><span style="font-size:8px">SEU SALDO</span><div class="big" style="letter-spacing:0">151 pts</div><span style="font-size:9px">Nível Semente</span>
+        <div style="height:6px;border:1px solid #666;border-radius:3px;margin-top:4px"><div style="width:75%;height:100%;background:#666"></div></div><span style="font-size:8px">Faltam 49 para Broto</span></div>
+      <b style="font-size:11px">Trocar pontos</b>
+      <div class="grid3"><div class="pc center"><div class="x"></div><span style="font-size:8px">Café · 60</span><div class="btn">Resgatar</div></div><div class="pc center"><div class="x"></div><span style="font-size:8px">R$10 · 120</span><div class="btn">Resgatar</div></div><div class="pc center" style="opacity:.5"><div class="x"></div><span style="font-size:8px">20% · 250</span><div class="btn o">Faltam 99</div></div></div>
+      <b style="font-size:11px">Meus cupons</b><div class="box flex between" style="background:#fff">R$ 10 off <div class="btn o">Usar</div></div>
+      <b style="font-size:11px">Extrato</b><div class="t l"></div><div class="t l"></div>
+    </div></div>
+
+  <div class="screen"><span class="cap">M10 · Central de privacidade</span>
+    <div class="phone">
+      <div class="bar"><span>◉ LOGO</span><span></span></div>
+      <b style="font-size:13px">🔒 Central de privacidade</b>
+      <div class="flex"><div class="switch on"></div><div class="grow"><b style="font-size:10px">Ofertas e novidades</b><div class="t m"></div></div></div>
+      <div class="flex"><div class="switch"></div><div class="grow"><b style="font-size:10px">Cookies de análise</b><div class="t m"></div></div></div>
+      <div class="flex" style="opacity:.5"><div class="switch on"></div><div class="grow"><b style="font-size:10px">Essenciais (sempre)</b><div class="t m"></div></div></div>
+      <div class="btn o">⬇ Baixar meus dados</div>
+      <div class="btn" style="background:#999">Excluir minha conta</div>
+      <div class="box" style="background:#fff"><b style="font-size:9px">Histórico de consentimentos ▾</b><div class="t l"></div><div class="t l"></div></div>
+      <div class="t l"></div><span style="font-size:8px">Contato do Encarregado (DPO)</span>
+    </div>
+    <span class="note">Direitos do titular (art. 18) com 1 toque.</span></div>
+
+  <div class="screen"><span class="cap">T1 · Totem (tela vertical 1080×1920)</span>
+    <div class="phone" style="width:200px;height:356px;border-radius:10px">
+      <div class="bar"><span>◉ LOGO <b>TOTEM</b></span><span>📍</span></div>
+      <div class="flex"><div class="box grow" style="background:#c8c8c8;height:30px">PROMO</div><div class="box grow" style="background:#c8c8c8">PROMO</div></div>
+      <div class="chips"><div>Tudo</div><div>Café</div><div>Pratos</div></div>
+      <div class="grid3"><div class="pc"><div class="x"></div><div class="btn">+</div></div><div class="pc"><div class="x"></div><div class="btn">+</div></div><div class="pc"><div class="x"></div><div class="btn">+</div></div><div class="pc"><div class="x"></div><div class="btn">+</div></div><div class="pc"><div class="x"></div><div class="btn">+</div></div><div class="pc"><div class="x"></div><div class="btn">+</div></div></div>
+      <div class="tabs" style="height:40px"><span><i></i>Cardápio</span><span><i></i>Promoções</span><span><i></i>Carrinho</span></div>
+    </div>
+    <span class="note">Sem login: só o nome para chamada. Botões de 56 px. Reinicia sozinho após 90 s sem uso (aparelho compartilhado).</span></div>
+</div>
+
+<h2>Fluxo 4 — Desktop (≥ 900 px)</h2>
+<div class="row">
+  <div class="screen"><span class="cap">D1 · Cardápio no desktop</span>
+    <div class="desk">
+      <div class="bar" style="height:30px"><span>◉ LOGO &nbsp; [📍 Salvador ▾]</span><span>Cardápio · Promoções · Fidelidade · Pedidos · Entrar · <b>[🛒 Carrinho ②]</b></span></div>
+      <div class="box flex between" style="padding:10px"><div><div class="t s"></div><b style="font-size:14px">Salvador — Pelourinho</b><div class="t m" style="width:200px"></div></div><div class="btn o">Trocar unidade</div></div>
+      <div class="grid3"><div class="box" style="background:#c8c8c8;height:50px">PROMO 1 [CUPOM]</div><div class="box" style="background:#c8c8c8">PROMO 2 [CUPOM]</div><div class="box" style="background:#c8c8c8">PROMO 3 [CUPOM]</div></div>
+      <div class="flex between"><b>Cardápio</b><div class="in" style="width:220px">🔍 Buscar</div></div>
+      <div class="chips"><div style="background:#333;color:#fff">Tudo</div><div>Café da manhã</div><div>Pratos</div><div>Lanches</div><div>Bebidas</div><div>Doces</div></div>
+      <div class="grid4">
+        <div class="pc"><div class="x"></div><div class="t m"></div><div class="t l"></div><div class="flex between"><b style="font-size:9px">R$ 14,90</b><div class="btn">Adicionar</div></div></div>
+        <div class="pc"><div class="x"></div><div class="t m"></div><div class="t l"></div><div class="flex between"><b style="font-size:9px">R$ 12,50</b><div class="btn">Adicionar</div></div></div>
+        <div class="pc"><div class="x"></div><div class="t m"></div><div class="t l"></div><div class="flex between"><b style="font-size:9px">R$ 9,50</b><div class="btn">Adicionar</div></div></div>
+        <div class="pc"><div class="x"></div><div class="t m"></div><div class="t l"></div><div class="flex between"><b style="font-size:9px">R$ 32,00</b><div class="btn">Adicionar</div></div></div>
+      </div>
+    </div>
+    <span class="note">A barra de abas do rodapé sobe para o cabeçalho; a grade passa de 1 para 3–4 colunas; o carrinho ganha destaque como botão.</span></div>
+
+  <div class="screen"><span class="cap">D2 · Checkout no desktop (duas colunas)</span>
+    <div class="desk">
+      <div class="bar" style="height:30px"><span>◉ LOGO &nbsp; [📍 Salvador ▾]</span><span>Cardápio · Promoções · Fidelidade · Pedidos · Maria · [🛒]</span></div>
+      <b style="font-size:14px">Pagamento</b>
+      <div class="flex" style="align-items:flex-start;gap:10px">
+        <div class="box" style="background:#fff;flex:1.6">
+          <b>Como quer receber?</b><div class="flex"><div class="box grow flex" style="background:#fff"><div class="circle f"></div>Balcão</div><div class="box grow flex" style="background:#fff"><div class="circle"></div>No local</div></div>
+          <b>Forma de pagamento</b><div class="flex"><div class="box grow flex" style="background:#fff"><div class="circle"></div>Pix</div><div class="box grow flex" style="background:#fff"><div class="circle f"></div>Crédito</div><div class="box grow flex" style="background:#fff"><div class="circle"></div>Débito</div></div>
+          <div class="lbl">Número do cartão *</div><div class="in"></div>
+          <div class="flex"><div class="grow"><div class="lbl">Validade</div><div class="in"></div></div><div class="grow"><div class="lbl">CVV</div><div class="in"></div></div></div>
+          <div class="callout" style="margin:6px 0">🔒 Não armazenamos os dados do cartão.</div>
+          <div class="btn" style="padding:9px">Pagar R$ 21,50</div>
+        </div>
+        <div class="box" style="background:#fff;flex:1"><b>Resumo (fixo ao rolar)</b><div class="t l"></div><div class="t l"></div><div class="flex between"><span>Subtotal</span><span>R$ 21,50</span></div><div class="flex between"><b>Total</b><b>R$ 21,50</b></div></div>
+      </div>
+    </div></div>
+
+  <div class="screen"><span class="cap">D3 · Painel da cozinha (KDS)</span>
+    <div class="desk">
+      <div class="bar" style="height:30px"><span>Painel da equipe</span><span>Unidade: [Salvador ▾]</span></div>
+      <div class="flex"><div class="btn">Cozinha</div><div class="btn o">Atendimento</div></div>
+      <div class="grid3" style="flex:1">
+        <div class="box"><b>Pagamento confirmado (2)</b><div class="box" style="background:#fff;margin-top:4px">#103 [A512] 12:04<div class="t m"></div><div class="btn">Iniciar preparo</div></div><div class="box" style="background:#fff;margin-top:4px">#104 [Q201]<div class="t m"></div><div class="btn">Iniciar preparo</div></div></div>
+        <div class="box"><b>Em preparo (1)</b><div class="box" style="background:#fff;margin-top:4px">#102 [K482]<div class="t m"></div><div class="btn">Marcar pronto</div></div></div>
+        <div class="box"><b>Pronto (1)</b><div class="box" style="background:#fff;margin-top:4px">#101 [N788]<div class="t m"></div></div></div>
+      </div>
+    </div>
+    <span class="note">A equipe vê só o primeiro nome e o código (minimização de dados).</span></div>
+</div>
+</body>
+</html>
